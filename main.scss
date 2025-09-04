@@ -11,15 +11,26 @@ body {
   grid-template-columns: repeat(2, 200px);
   gap: 40px 30px;
   justify-content: center;
-  padding: 30px 35px;
+  padding: 30px 35px 150px;
   overflow: auto;
   @media screen and (min-width: 1000px) {
     grid-template-columns: repeat(4, 200px);
-    padding: 30px 55px;
+    padding: 30px 55px 150px;
   }
 }
 
+.item {
+  position: relative;
+}
+
 .person {
+  border-radius: 10px;
+  width: 220px;
+  padding: 10px 10px 16px;
+  margin: -10px -10px -16px;
+  transition: transform 1s linear;
+
+  cursor: pointer;
   &__photo {
     position: relative;
   }
@@ -46,9 +57,7 @@ body {
     width: 100%;
     border-radius: 200px;
     margin-bottom: 8px;
-  }
-  &__details {
-    position: relative;
+    transition: border-radius 1s linear;
   }
   &__name {
     display: block;
@@ -58,12 +67,9 @@ body {
     color: #2f4f4f;
   }
   &__extra {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     margin-top: 9px;
     text-align: center;
-    visibility: hidden;
+    display: none;
   }
   &__sport {
     font-weight: 400;
@@ -77,6 +83,20 @@ body {
   &__pay {
     &::before {
       content: "\0024";
+    }
+  }
+
+  &:hover {
+    position: absolute;
+    z-index: 1;
+
+    background: #eee;
+    transform: scale(1.2);
+    & .person__extra {
+      display: block;
+    }
+    & .person__img {
+      border-radius: 60px;
     }
   }
 }
