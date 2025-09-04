@@ -1,1 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
 
+.people {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: 40px 30px;
+  justify-content: center;
+  padding: 30px 35px;
+  overflow: auto;
+  @media screen and (min-width: 1000px) {
+    grid-template-columns: repeat(4, 200px);
+    padding: 30px 55px;
+  }
+}
+
+.person {
+  &__photo {
+    position: relative;
+  }
+  &__rank {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100%;
+    font-weight: 700;
+    font-size: 16px;
+    color: #8b0000;
+    background-color: #fff;
+  }
+  &__img {
+    display: block;
+    width: 100%;
+    border-radius: 200px;
+    margin-bottom: 8px;
+  }
+  &__details {
+    position: relative;
+  }
+  &__name {
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #2f4f4f;
+  }
+  &__extra {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 9px;
+    text-align: center;
+    visibility: hidden;
+  }
+  &__sport {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: #000;
+    &::after {
+      content: ",";
+    }
+  }
+  &__pay {
+    &::before {
+      content: "\0024";
+    }
+  }
+}
