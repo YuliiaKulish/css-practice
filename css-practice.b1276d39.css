@@ -11,7 +11,7 @@ body {
   grid-template-columns: repeat(2, 200px);
   justify-content: center;
   gap: 40px 30px;
-  padding: 30px 35px;
+  padding: 30px 35px 150px;
   display: grid;
   overflow: auto;
 }
@@ -19,8 +19,21 @@ body {
 @media screen and (width >= 1000px) {
   .people {
     grid-template-columns: repeat(4, 200px);
-    padding: 30px 55px;
+    padding: 30px 55px 150px;
   }
+}
+
+.item {
+  position: relative;
+}
+
+.person {
+  cursor: pointer;
+  border-radius: 10px;
+  width: 220px;
+  margin: -10px -10px -16px;
+  padding: 10px 10px 16px;
+  transition: transform 1s linear;
 }
 
 .person__photo {
@@ -48,11 +61,8 @@ body {
   border-radius: 200px;
   width: 100%;
   margin-bottom: 8px;
+  transition: border-radius 1s linear;
   display: block;
-}
-
-.person__details {
-  position: relative;
 }
 
 .person__name {
@@ -65,11 +75,8 @@ body {
 
 .person__extra {
   text-align: center;
-  visibility: hidden;
   margin-top: 9px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  display: none;
 }
 
 .person__sport {
@@ -85,5 +92,20 @@ body {
 
 .person__pay:before {
   content: "$";
+}
+
+.person:hover {
+  z-index: 1;
+  background: #eee;
+  position: absolute;
+  transform: scale(1.2);
+}
+
+.person:hover .person__extra {
+  display: block;
+}
+
+.person:hover .person__img {
+  border-radius: 60px;
 }
 /*# sourceMappingURL=css-practice.b1276d39.css.map */
